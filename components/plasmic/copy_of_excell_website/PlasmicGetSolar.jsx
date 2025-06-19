@@ -1441,6 +1441,29 @@ function PlasmicGetSolar__RenderFunc(props) {
                       className={classNames("__wab_instance", sty.button)}
                       href={undefined}
                       loading={false}
+                      onClick={async () => {
+                        const $steps = {};
+                        $steps["refreshData"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                queryInvalidation: ["plasmic_refresh_all"]
+                              };
+                              return (async ({ queryInvalidation }) => {
+                                if (!queryInvalidation) {
+                                  return;
+                                }
+                                await plasmicInvalidate(queryInvalidation);
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["refreshData"] != null &&
+                          typeof $steps["refreshData"] === "object" &&
+                          typeof $steps["refreshData"].then === "function"
+                        ) {
+                          $steps["refreshData"] = await $steps["refreshData"];
+                        }
+                      }}
                       size={"large"}
                       submitsForm={true}
                       type={"default"}
