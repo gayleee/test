@@ -27,6 +27,7 @@ import {
   generateStateValueProp,
   hasVariant,
   initializeCodeComponentStates,
+  set as $stateSet,
   useCurrentUser,
   useDollarState
 } from "@plasmicapp/react-web";
@@ -538,6 +539,42 @@ function PlasmicGetSolar__RenderFunc(props) {
                       ["inquiryForm", "value"],
                       FormWrapper_Helpers
                     ).apply(null, eventArgs);
+                    (async (changedValues, allValues) => {
+                      const $steps = {};
+                      $steps["updateVariable"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["variable"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateVariable"] != null &&
+                        typeof $steps["updateVariable"] === "object" &&
+                        typeof $steps["updateVariable"].then === "function"
+                      ) {
+                        $steps["updateVariable"] = await $steps[
+                          "updateVariable"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
                   },
                   formItems: [
                     { label: "Name", name: "name", inputType: "Text" },
@@ -553,9 +590,21 @@ function PlasmicGetSolar__RenderFunc(props) {
                   mode: "advanced",
                   onFinish: async values => {
                     const $steps = {};
-                    $steps["useIntegration"] = true
+                    $steps["postgresCreate"] = true
                       ? (() => {
-                          const actionArgs = { continueOnError: true };
+                          const actionArgs = {
+                            continueOnError: true,
+                            dataOp: {
+                              sourceId: "cBFJte1xahZF9tr69kaEnM",
+                              opId: "a93462cb-b2e8-4114-8494-8dae73ae87a4",
+                              userArgs: {
+                                variables: [values]
+                              },
+                              cacheKey: null,
+                              invalidatedKeys: ["plasmic_refresh_all"],
+                              roleId: "7a6870b2-63d4-446f-86b5-f6db971e2494"
+                            }
+                          };
                           return (async ({ dataOp, continueOnError }) => {
                             try {
                               const response = await executePlasmicDataOp(
@@ -577,11 +626,11 @@ function PlasmicGetSolar__RenderFunc(props) {
                         })()
                       : undefined;
                     if (
-                      $steps["useIntegration"] != null &&
-                      typeof $steps["useIntegration"] === "object" &&
-                      typeof $steps["useIntegration"].then === "function"
+                      $steps["postgresCreate"] != null &&
+                      typeof $steps["postgresCreate"] === "object" &&
+                      typeof $steps["postgresCreate"].then === "function"
                     ) {
-                      $steps["useIntegration"] = await $steps["useIntegration"];
+                      $steps["postgresCreate"] = await $steps["postgresCreate"];
                     }
                   },
                   onIsSubmittingChange: async (...eventArgs) => {
