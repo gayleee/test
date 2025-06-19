@@ -27,7 +27,6 @@ import {
   generateStateValueProp,
   hasVariant,
   initializeCodeComponentStates,
-  set as $stateSet,
   useCurrentUser,
   useDollarState
 } from "@plasmicapp/react-web";
@@ -109,44 +108,50 @@ function PlasmicGetSolar__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "inquiryForm.value",
+        path: "submitSuccess",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "form.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        refName: "inquiryForm",
+        refName: "form",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "inquiryForm.isSubmitting",
+        path: "form.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
-        refName: "inquiryForm",
+        refName: "form",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
-        path: "firstNameInput.value",
+        path: "input.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "lastNameInput.value",
+        path: "input2.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "emailInput.value",
+        path: "input3.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "phoneInput.value",
+        path: "input4.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -159,11 +164,25 @@ function PlasmicGetSolar__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "companyNameInput.value",
+        path: "input5.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "textArea2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
       },
       {
         path: "select.value",
@@ -178,24 +197,10 @@ function PlasmicGetSolar__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "messageInput.value",
+        path: "variable2",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
-      },
-      {
-        path: "billAmountInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "submitSuccess",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
 
@@ -531,50 +536,14 @@ function PlasmicGetSolar__RenderFunc(props) {
             >
               {(() => {
                 const child$Props = {
-                  className: classNames("__wab_instance", sty.inquiryForm),
+                  className: classNames("__wab_instance", sty.form),
                   extendedOnValuesChange: async (...eventArgs) => {
                     generateStateOnChangePropForCodeComponents(
                       $state,
                       "value",
-                      ["inquiryForm", "value"],
+                      ["form", "value"],
                       FormWrapper_Helpers
                     ).apply(null, eventArgs);
-                    (async (changedValues, allValues) => {
-                      const $steps = {};
-                      $steps["updateVariable"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["variable"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateVariable"] != null &&
-                        typeof $steps["updateVariable"] === "object" &&
-                        typeof $steps["updateVariable"].then === "function"
-                      ) {
-                        $steps["updateVariable"] = await $steps[
-                          "updateVariable"
-                        ];
-                      }
-                    }).apply(null, eventArgs);
                   },
                   formItems: [
                     { label: "Name", name: "name", inputType: "Text" },
@@ -593,10 +562,9 @@ function PlasmicGetSolar__RenderFunc(props) {
                     $steps["postgresCreate"] = true
                       ? (() => {
                           const actionArgs = {
-                            continueOnError: true,
                             dataOp: {
-                              sourceId: "AArXsBXWgSqDycshBdLbB",
-                              opId: "556d6483-5243-4359-a6f7-5595430ebded",
+                              sourceId: "3QZVgcraAPmmVpc5XB7bFz",
+                              opId: "2ed7b061-6f89-4180-bbfe-288a5daeb39b",
                               userArgs: {
                                 variables: [values]
                               },
@@ -637,14 +605,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                     generateStateOnChangePropForCodeComponents(
                       $state,
                       "isSubmitting",
-                      ["inquiryForm", "isSubmitting"],
+                      ["form", "isSubmitting"],
                       FormWrapper_Helpers
                     ).apply(null, eventArgs);
                   },
                   ref: ref => {
-                    $refs["inquiryForm"] = ref;
+                    $refs["form"] = ref;
                   },
-                  requiredMark: "optional",
                   submitSlot: null,
                   wrapperCol: { span: 16, horizontalOnly: true }
                 };
@@ -653,11 +620,11 @@ function PlasmicGetSolar__RenderFunc(props) {
                   [
                     {
                       name: "value",
-                      plasmicStateName: "inquiryForm.value"
+                      plasmicStateName: "form.value"
                     },
                     {
                       name: "isSubmitting",
-                      plasmicStateName: "inquiryForm.isSubmitting"
+                      plasmicStateName: "form.isSubmitting"
                     }
                   ],
 
@@ -667,45 +634,36 @@ function PlasmicGetSolar__RenderFunc(props) {
                 );
                 return (
                   <FormWrapper
-                    data-plasmic-name={"inquiryForm"}
-                    data-plasmic-override={overrides.inquiryForm}
+                    data-plasmic-name={"form"}
+                    data-plasmic-override={overrides.form}
                     {...child$Props}
                   >
                     <Stack__
                       as={"div"}
-                      data-plasmic-name={"nameHs"}
-                      data-plasmic-override={overrides.nameHs}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.nameHs)}
+                      className={classNames(projectcss.all, sty.freeBox__tvAfg)}
                     >
                       <FormItemWrapper
-                        data-plasmic-name={"firstNameField"}
-                        data-plasmic-override={overrides.firstNameField}
                         className={classNames(
                           "__wab_instance",
-                          sty.firstNameField
+                          sty.formField__qbqjq
                         )}
                         label={"First Name"}
                         name={"first_name"}
                       >
                         {(() => {
                           const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.firstNameInput
-                            ),
-                            maxLength: 255,
+                            className: classNames("__wab_instance", sty.input),
                             onChange: async (...eventArgs) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "value",
-                                ["firstNameInput", "value"],
+                                ["input", "value"],
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: "Enter First Name",
                             value: generateStateValueProp($state, [
-                              "firstNameInput",
+                              "input",
                               "value"
                             ])
                           };
@@ -714,7 +672,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             [
                               {
                                 name: "value",
-                                plasmicStateName: "firstNameInput.value"
+                                plasmicStateName: "input.value"
                               }
                             ],
 
@@ -724,114 +682,44 @@ function PlasmicGetSolar__RenderFunc(props) {
                           );
                           return (
                             <AntdInput
-                              data-plasmic-name={"firstNameInput"}
-                              data-plasmic-override={overrides.firstNameInput}
+                              data-plasmic-name={"input"}
+                              data-plasmic-override={overrides.input}
                               {...child$Props}
                             />
                           );
                         })()}
                       </FormItemWrapper>
                       <FormItemWrapper
-                        data-plasmic-name={"lastNameField"}
-                        data-plasmic-override={overrides.lastNameField}
                         className={classNames(
                           "__wab_instance",
-                          sty.lastNameField
+                          sty.formField__tKixO
                         )}
-                        label={"Last Name"}
-                        name={"last_name"}
-                      >
-                        {(() => {
-                          const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.lastNameInput
-                            ),
-                            onChange: async (...eventArgs) => {
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "value",
-                                ["lastNameInput", "value"],
-                                AntdInput_Helpers
-                              ).apply(null, eventArgs);
-                            },
-                            placeholder: "Enter Last Name",
-                            value: generateStateValueProp($state, [
-                              "lastNameInput",
-                              "value"
-                            ])
-                          };
-                          initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "value",
-                                plasmicStateName: "lastNameInput.value"
-                              }
-                            ],
-
-                            [],
-                            AntdInput_Helpers ?? {},
-                            child$Props
-                          );
-                          return (
-                            <AntdInput
-                              data-plasmic-name={"lastNameInput"}
-                              data-plasmic-override={overrides.lastNameInput}
-                              {...child$Props}
-                            />
-                          );
-                        })()}
-                      </FormItemWrapper>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      data-plasmic-name={"contactHs"}
-                      data-plasmic-override={overrides.contactHs}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.contactHs)}
-                    >
-                      <FormItemWrapper
-                        data-plasmic-name={"emailField"}
-                        data-plasmic-override={overrides.emailField}
-                        className={classNames("__wab_instance", sty.emailField)}
                         label={
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__xCzzo
+                              sty.text__nk3Xw
                             )}
                           >
-                            {"Email Address"}
+                            {"Last Name"}
                           </div>
                         }
-                        name={"email"}
-                        rules={[
-                          {
-                            ruleType: "required",
-                            message: "Email address must be provided."
-                          }
-                        ]}
+                        name={"last_name"}
                       >
                         {(() => {
                           const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.emailInput
-                            ),
+                            className: classNames("__wab_instance", sty.input2),
                             onChange: async (...eventArgs) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "value",
-                                ["emailInput", "value"],
+                                ["input2", "value"],
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: "Enter Email Address",
-                            type: "email",
                             value: generateStateValueProp($state, [
-                              "emailInput",
+                              "input2",
                               "value"
                             ])
                           };
@@ -840,7 +728,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             [
                               {
                                 name: "value",
-                                plasmicStateName: "emailInput.value"
+                                plasmicStateName: "input2.value"
                               }
                             ],
 
@@ -850,69 +738,8 @@ function PlasmicGetSolar__RenderFunc(props) {
                           );
                           return (
                             <AntdInput
-                              data-plasmic-name={"emailInput"}
-                              data-plasmic-override={overrides.emailInput}
-                              {...child$Props}
-                            />
-                          );
-                        })()}
-                      </FormItemWrapper>
-                      <FormItemWrapper
-                        data-plasmic-name={"phoneField"}
-                        data-plasmic-override={overrides.phoneField}
-                        className={classNames("__wab_instance", sty.phoneField)}
-                        initialValue={"+63"}
-                        label={"Phone Number"}
-                        name={"phone_number"}
-                        rules={[
-                          { ruleType: "max", length: 13 },
-                          { ruleType: "whitespace", message: `` },
-                          {
-                            ruleType: "required",
-                            message:
-                              "Phone or Landline number must be provided."
-                          }
-                        ]}
-                      >
-                        {(() => {
-                          const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.phoneInput
-                            ),
-                            maxLength: 13,
-                            onChange: async (...eventArgs) => {
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "value",
-                                ["phoneInput", "value"],
-                                AntdInput_Helpers
-                              ).apply(null, eventArgs);
-                            },
-                            placeholder: ``,
-                            type: "tel",
-                            value: generateStateValueProp($state, [
-                              "phoneInput",
-                              "value"
-                            ])
-                          };
-                          initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "value",
-                                plasmicStateName: "phoneInput.value"
-                              }
-                            ],
-
-                            [],
-                            AntdInput_Helpers ?? {},
-                            child$Props
-                          );
-                          return (
-                            <AntdInput
-                              data-plasmic-name={"phoneInput"}
-                              data-plasmic-override={overrides.phoneInput}
+                              data-plasmic-name={"input2"}
+                              data-plasmic-override={overrides.input2}
                               {...child$Props}
                             />
                           );
@@ -921,10 +748,126 @@ function PlasmicGetSolar__RenderFunc(props) {
                     </Stack__>
                     <Stack__
                       as={"div"}
-                      data-plasmic-name={"addressHs"}
-                      data-plasmic-override={overrides.addressHs}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.addressHs)}
+                      className={classNames(projectcss.all, sty.freeBox__gYsGh)}
+                    >
+                      <FormItemWrapper
+                        className={classNames(
+                          "__wab_instance",
+                          sty.formField__rd7Mp
+                        )}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__rKm2X
+                            )}
+                          >
+                            {"Email"}
+                          </div>
+                        }
+                        name={"email"}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            className: classNames("__wab_instance", sty.input3),
+                            onChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "value",
+                                ["input3", "value"],
+                                AntdInput_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            value: generateStateValueProp($state, [
+                              "input3",
+                              "value"
+                            ])
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "value",
+                                plasmicStateName: "input3.value"
+                              }
+                            ],
+
+                            [],
+                            AntdInput_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <AntdInput
+                              data-plasmic-name={"input3"}
+                              data-plasmic-override={overrides.input3}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </FormItemWrapper>
+                      <FormItemWrapper
+                        className={classNames(
+                          "__wab_instance",
+                          sty.formField__ltJ3N
+                        )}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__yrgt
+                            )}
+                          >
+                            {"Phone Number"}
+                          </div>
+                        }
+                        name={"phone_number"}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            className: classNames("__wab_instance", sty.input4),
+                            onChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "value",
+                                ["input4", "value"],
+                                AntdInput_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            value: generateStateValueProp($state, [
+                              "input4",
+                              "value"
+                            ])
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "value",
+                                plasmicStateName: "input4.value"
+                              }
+                            ],
+
+                            [],
+                            AntdInput_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <AntdInput
+                              data-plasmic-name={"input4"}
+                              data-plasmic-override={overrides.input4}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </FormItemWrapper>
+                    </Stack__>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__bxQdl)}
                     >
                       <DataFetcher
                         data-plasmic-name={"regionFetcher"}
@@ -936,13 +879,33 @@ function PlasmicGetSolar__RenderFunc(props) {
                         dataName={"fetchedData"}
                         errorDisplay={
                           <DataCtxReader__>
-                            {$ctx => "Error fetching data"}
+                            {$ctx => (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__cvk3X
+                                )}
+                              >
+                                {"Error fetching data"}
+                              </div>
+                            )}
                           </DataCtxReader__>
                         }
                         errorName={"fetchError"}
                         loadingDisplay={
                           <DataCtxReader__>
-                            {$ctx => "Loading..."}
+                            {$ctx => (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__rcUGl
+                                )}
+                              >
+                                {"Loading..."}
+                              </div>
+                            )}
                           </DataCtxReader__>
                         }
                         method={"GET"}
@@ -963,14 +926,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text___0FxEv
+                                    sty.text__yXv49
                                   )}
                                 >
                                   {"Region"}
                                 </div>
                               }
                               name={"region"}
-                              rules={[{ ruleType: "required" }]}
                             >
                               <AntdSelect
                                 data-plasmic-name={"regionDropdown"}
@@ -1000,7 +962,17 @@ function PlasmicGetSolar__RenderFunc(props) {
                                     type: "option"
                                   }
                                 ]}
-                                placeholder={"Select..."}
+                                placeholder={
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__lUiF8
+                                    )}
+                                  >
+                                    {"Select..."}
+                                  </div>
+                                }
                                 popupScopeClassName={
                                   sty["regionDropdown__popup"]
                                 }
@@ -1072,22 +1044,30 @@ function PlasmicGetSolar__RenderFunc(props) {
                                         }
                                       })()}
                                     >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return `${currentItem.name} (${currentItem.regionName})`;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "Option";
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__s1G9Y
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return `${currentItem.name} (${currentItem.regionName})`;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "Option";
+                                              }
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
                                     </AntdOption>
                                   );
                                 })}
@@ -1097,48 +1077,36 @@ function PlasmicGetSolar__RenderFunc(props) {
                         </DataCtxReader__>
                       </DataFetcher>
                       <FormItemWrapper
-                        data-plasmic-name={"companyNameField"}
-                        data-plasmic-override={overrides.companyNameField}
                         className={classNames(
                           "__wab_instance",
-                          sty.companyNameField
+                          sty.formField___8A5MG
                         )}
                         label={
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__dgsuu
+                              sty.text__kqAhu
                             )}
                           >
                             {"Company Name"}
                           </div>
                         }
                         name={"company_name"}
-                        rules={[
-                          {
-                            ruleType: "required",
-                            message: "Company name cannot be empty."
-                          }
-                        ]}
                       >
                         {(() => {
                           const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.companyNameInput
-                            ),
+                            className: classNames("__wab_instance", sty.input5),
                             onChange: async (...eventArgs) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "value",
-                                ["companyNameInput", "value"],
+                                ["input5", "value"],
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: "Enter Company Name",
                             value: generateStateValueProp($state, [
-                              "companyNameInput",
+                              "input5",
                               "value"
                             ])
                           };
@@ -1147,7 +1115,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             [
                               {
                                 name: "value",
-                                plasmicStateName: "companyNameInput.value"
+                                plasmicStateName: "input5.value"
                               }
                             ],
 
@@ -1157,8 +1125,8 @@ function PlasmicGetSolar__RenderFunc(props) {
                           );
                           return (
                             <AntdInput
-                              data-plasmic-name={"companyNameInput"}
-                              data-plasmic-override={overrides.companyNameInput}
+                              data-plasmic-name={"input5"}
+                              data-plasmic-override={overrides.input5}
                               {...child$Props}
                             />
                           );
@@ -1184,19 +1152,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__nEBrm
+                              sty.text__mjXal
                             )}
                           >
                             {"Sector/Classification"}
                           </div>
                         }
                         name={"sector"}
-                        rules={[
-                          {
-                            ruleType: "required",
-                            message: "Please select a sector."
-                          }
-                        ]}
                       >
                         <AntdSelect
                           data-plasmic-name={"select"}
@@ -1230,7 +1192,17 @@ function PlasmicGetSolar__RenderFunc(props) {
                             __composite["2"]["label"] = "Commercial";
                             return __composite;
                           })()}
-                          placeholder={"Select..."}
+                          placeholder={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__pBtdd
+                              )}
+                            >
+                              {"Select..."}
+                            </div>
+                          }
                           popupScopeClassName={sty["select__popup"]}
                           value={generateStateValueProp($state, [
                             "select",
@@ -1239,27 +1211,22 @@ function PlasmicGetSolar__RenderFunc(props) {
                         />
                       </FormItemWrapper>
                       <FormItemWrapper
-                        data-plasmic-name={"formField"}
-                        data-plasmic-override={overrides.formField}
-                        className={classNames("__wab_instance", sty.formField)}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.formField__l0Hh5
+                        )}
                         label={
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__bqBhQ
+                              sty.text__bGw56
                             )}
                           >
                             {"Industry"}
                           </div>
                         }
                         name={"industry"}
-                        rules={[
-                          {
-                            ruleType: "required",
-                            message: "Please select an industry."
-                          }
-                        ]}
                       >
                         <AntdSelect
                           data-plasmic-name={"select2"}
@@ -1334,7 +1301,17 @@ function PlasmicGetSolar__RenderFunc(props) {
                             __composite["13"]["label"] = "Others";
                             return __composite;
                           })()}
-                          placeholder={"Select..."}
+                          placeholder={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__pfBf7
+                              )}
+                            >
+                              {"Select..."}
+                            </div>
+                          }
                           popupScopeClassName={sty["select2__popup"]}
                           value={generateStateValueProp($state, [
                             "select2",
@@ -1345,17 +1322,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                     </Stack__>
                     <Stack__
                       as={"div"}
-                      data-plasmic-name={"detailsHs"}
-                      data-plasmic-override={overrides.detailsHs}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.detailsHs)}
+                      className={classNames(projectcss.all, sty.freeBox__l4POw)}
                     >
                       <FormItemWrapper
-                        data-plasmic-name={"billAmountField"}
-                        data-plasmic-override={overrides.billAmountField}
                         className={classNames(
                           "__wab_instance",
-                          sty.billAmountField
+                          sty.formField__flfhq
                         )}
                         initialValue={"\u20b10.00"}
                         label={
@@ -1363,7 +1336,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__kP9V
+                              sty.text__iDTmr
                             )}
                           >
                             {"Monthly Bill"}
@@ -1373,22 +1346,17 @@ function PlasmicGetSolar__RenderFunc(props) {
                       >
                         {(() => {
                           const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.billAmountInput
-                            ),
+                            className: classNames("__wab_instance", sty.input6),
                             onChange: async (...eventArgs) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "value",
-                                ["billAmountInput", "value"],
+                                ["input6", "value"],
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: "Enter amount",
-                            type: "text",
                             value: generateStateValueProp($state, [
-                              "billAmountInput",
+                              "input6",
                               "value"
                             ])
                           };
@@ -1397,7 +1365,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             [
                               {
                                 name: "value",
-                                plasmicStateName: "billAmountInput.value"
+                                plasmicStateName: "input6.value"
                               }
                             ],
 
@@ -1407,57 +1375,47 @@ function PlasmicGetSolar__RenderFunc(props) {
                           );
                           return (
                             <AntdInput
-                              data-plasmic-name={"billAmountInput"}
-                              data-plasmic-override={overrides.billAmountInput}
+                              data-plasmic-name={"input6"}
+                              data-plasmic-override={overrides.input6}
                               {...child$Props}
                             />
                           );
                         })()}
                       </FormItemWrapper>
                       <FormItemWrapper
-                        data-plasmic-name={"messageField"}
-                        data-plasmic-override={overrides.messageField}
                         className={classNames(
                           "__wab_instance",
-                          sty.messageField
+                          sty.formField__afzvW
                         )}
                         label={
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__zlLhS
+                              sty.text__gtE9
                             )}
                           >
                             {"Message"}
                           </div>
                         }
                         name={"message"}
-                        rules={[
-                          {
-                            ruleType: "required",
-                            message:
-                              "Message or purpose of the inquiry cannot be empty."
-                          }
-                        ]}
                       >
                         {(() => {
                           const child$Props = {
                             className: classNames(
                               "__wab_instance",
-                              sty.messageInput
+                              sty.textArea2
                             ),
                             onChange: async (...eventArgs) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "value",
-                                ["messageInput", "value"],
+                                ["textArea2", "value"],
                                 AntdTextArea_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: "Enter your question or message here",
                             value: generateStateValueProp($state, [
-                              "messageInput",
+                              "textArea2",
                               "value"
                             ])
                           };
@@ -1466,7 +1424,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             [
                               {
                                 name: "value",
-                                plasmicStateName: "messageInput.value"
+                                plasmicStateName: "textArea2.value"
                               }
                             ],
 
@@ -1476,8 +1434,8 @@ function PlasmicGetSolar__RenderFunc(props) {
                           );
                           return (
                             <AntdTextArea
-                              data-plasmic-name={"messageInput"}
-                              data-plasmic-override={overrides.messageInput}
+                              data-plasmic-name={"textArea2"}
+                              data-plasmic-override={overrides.textArea2}
                               {...child$Props}
                             />
                           );
@@ -1488,8 +1446,6 @@ function PlasmicGetSolar__RenderFunc(props) {
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
                       className={classNames("__wab_instance", sty.button)}
-                      href={undefined}
-                      loading={false}
                       onClick={async () => {
                         const $steps = {};
                         $steps["refreshData"] = true
@@ -1515,16 +1471,16 @@ function PlasmicGetSolar__RenderFunc(props) {
                       }}
                       size={"large"}
                       submitsForm={true}
-                      type={"default"}
+                      type={"primary"}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__yEfLi
+                          sty.text___6J24R
                         )}
                       >
-                        {"Submit Form"}
+                        {"Submit"}
                       </div>
                     </AntdButton>
                   </FormWrapper>
@@ -1865,34 +1821,22 @@ const PlasmicDescendants = {
     "logo4",
     "container",
     "card",
-    "inquiryForm",
-    "nameHs",
-    "firstNameField",
-    "firstNameInput",
-    "lastNameField",
-    "lastNameInput",
-    "contactHs",
-    "emailField",
-    "emailInput",
-    "phoneField",
-    "phoneInput",
-    "addressHs",
+    "form",
+    "input",
+    "input2",
+    "input3",
+    "input4",
     "regionFetcher",
     "regionField",
     "regionDropdown",
     "regionOptions",
-    "companyNameField",
-    "companyNameInput",
+    "input5",
     "businessHs",
     "sectorField",
     "select",
-    "formField",
     "select2",
-    "detailsHs",
-    "billAmountField",
-    "billAmountInput",
-    "messageField",
-    "messageInput",
+    "input6",
+    "textArea2",
     "button",
     "footer",
     "section5",
@@ -1925,136 +1869,70 @@ const PlasmicDescendants = {
   container: [
     "container",
     "card",
-    "inquiryForm",
-    "nameHs",
-    "firstNameField",
-    "firstNameInput",
-    "lastNameField",
-    "lastNameInput",
-    "contactHs",
-    "emailField",
-    "emailInput",
-    "phoneField",
-    "phoneInput",
-    "addressHs",
+    "form",
+    "input",
+    "input2",
+    "input3",
+    "input4",
     "regionFetcher",
     "regionField",
     "regionDropdown",
     "regionOptions",
-    "companyNameField",
-    "companyNameInput",
+    "input5",
     "businessHs",
     "sectorField",
     "select",
-    "formField",
     "select2",
-    "detailsHs",
-    "billAmountField",
-    "billAmountInput",
-    "messageField",
-    "messageInput",
+    "input6",
+    "textArea2",
     "button"
   ],
 
   card: [
     "card",
-    "inquiryForm",
-    "nameHs",
-    "firstNameField",
-    "firstNameInput",
-    "lastNameField",
-    "lastNameInput",
-    "contactHs",
-    "emailField",
-    "emailInput",
-    "phoneField",
-    "phoneInput",
-    "addressHs",
+    "form",
+    "input",
+    "input2",
+    "input3",
+    "input4",
     "regionFetcher",
     "regionField",
     "regionDropdown",
     "regionOptions",
-    "companyNameField",
-    "companyNameInput",
+    "input5",
     "businessHs",
     "sectorField",
     "select",
-    "formField",
     "select2",
-    "detailsHs",
-    "billAmountField",
-    "billAmountInput",
-    "messageField",
-    "messageInput",
+    "input6",
+    "textArea2",
     "button"
   ],
 
-  inquiryForm: [
-    "inquiryForm",
-    "nameHs",
-    "firstNameField",
-    "firstNameInput",
-    "lastNameField",
-    "lastNameInput",
-    "contactHs",
-    "emailField",
-    "emailInput",
-    "phoneField",
-    "phoneInput",
-    "addressHs",
+  form: [
+    "form",
+    "input",
+    "input2",
+    "input3",
+    "input4",
     "regionFetcher",
     "regionField",
     "regionDropdown",
     "regionOptions",
-    "companyNameField",
-    "companyNameInput",
+    "input5",
     "businessHs",
     "sectorField",
     "select",
-    "formField",
     "select2",
-    "detailsHs",
-    "billAmountField",
-    "billAmountInput",
-    "messageField",
-    "messageInput",
+    "input6",
+    "textArea2",
     "button"
   ],
 
-  nameHs: [
-    "nameHs",
-    "firstNameField",
-    "firstNameInput",
-    "lastNameField",
-    "lastNameInput"
-  ],
-
-  firstNameField: ["firstNameField", "firstNameInput"],
-  firstNameInput: ["firstNameInput"],
-  lastNameField: ["lastNameField", "lastNameInput"],
-  lastNameInput: ["lastNameInput"],
-  contactHs: [
-    "contactHs",
-    "emailField",
-    "emailInput",
-    "phoneField",
-    "phoneInput"
-  ],
-
-  emailField: ["emailField", "emailInput"],
-  emailInput: ["emailInput"],
-  phoneField: ["phoneField", "phoneInput"],
-  phoneInput: ["phoneInput"],
-  addressHs: [
-    "addressHs",
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions",
-    "companyNameField",
-    "companyNameInput"
-  ],
-
+  input: ["input"],
+  input2: ["input2"],
+  input3: ["input3"],
+  input4: ["input4"],
   regionFetcher: [
     "regionFetcher",
     "regionField",
@@ -2065,25 +1943,13 @@ const PlasmicDescendants = {
   regionField: ["regionField", "regionDropdown", "regionOptions"],
   regionDropdown: ["regionDropdown", "regionOptions"],
   regionOptions: ["regionOptions"],
-  companyNameField: ["companyNameField", "companyNameInput"],
-  companyNameInput: ["companyNameInput"],
-  businessHs: ["businessHs", "sectorField", "select", "formField", "select2"],
+  input5: ["input5"],
+  businessHs: ["businessHs", "sectorField", "select", "select2"],
   sectorField: ["sectorField", "select"],
   select: ["select"],
-  formField: ["formField", "select2"],
   select2: ["select2"],
-  detailsHs: [
-    "detailsHs",
-    "billAmountField",
-    "billAmountInput",
-    "messageField",
-    "messageInput"
-  ],
-
-  billAmountField: ["billAmountField", "billAmountInput"],
-  billAmountInput: ["billAmountInput"],
-  messageField: ["messageField", "messageInput"],
-  messageInput: ["messageInput"],
+  input6: ["input6"],
+  textArea2: ["textArea2"],
   button: ["button"],
   footer: [
     "footer",
@@ -2186,34 +2052,22 @@ export const PlasmicGetSolar = Object.assign(
     logo4: makeNodeComponent("logo4"),
     container: makeNodeComponent("container"),
     card: makeNodeComponent("card"),
-    inquiryForm: makeNodeComponent("inquiryForm"),
-    nameHs: makeNodeComponent("nameHs"),
-    firstNameField: makeNodeComponent("firstNameField"),
-    firstNameInput: makeNodeComponent("firstNameInput"),
-    lastNameField: makeNodeComponent("lastNameField"),
-    lastNameInput: makeNodeComponent("lastNameInput"),
-    contactHs: makeNodeComponent("contactHs"),
-    emailField: makeNodeComponent("emailField"),
-    emailInput: makeNodeComponent("emailInput"),
-    phoneField: makeNodeComponent("phoneField"),
-    phoneInput: makeNodeComponent("phoneInput"),
-    addressHs: makeNodeComponent("addressHs"),
+    form: makeNodeComponent("form"),
+    input: makeNodeComponent("input"),
+    input2: makeNodeComponent("input2"),
+    input3: makeNodeComponent("input3"),
+    input4: makeNodeComponent("input4"),
     regionFetcher: makeNodeComponent("regionFetcher"),
     regionField: makeNodeComponent("regionField"),
     regionDropdown: makeNodeComponent("regionDropdown"),
     regionOptions: makeNodeComponent("regionOptions"),
-    companyNameField: makeNodeComponent("companyNameField"),
-    companyNameInput: makeNodeComponent("companyNameInput"),
+    input5: makeNodeComponent("input5"),
     businessHs: makeNodeComponent("businessHs"),
     sectorField: makeNodeComponent("sectorField"),
     select: makeNodeComponent("select"),
-    formField: makeNodeComponent("formField"),
     select2: makeNodeComponent("select2"),
-    detailsHs: makeNodeComponent("detailsHs"),
-    billAmountField: makeNodeComponent("billAmountField"),
-    billAmountInput: makeNodeComponent("billAmountInput"),
-    messageField: makeNodeComponent("messageField"),
-    messageInput: makeNodeComponent("messageInput"),
+    input6: makeNodeComponent("input6"),
+    textArea2: makeNodeComponent("textArea2"),
     button: makeNodeComponent("button"),
     footer: makeNodeComponent("footer"),
     section5: makeNodeComponent("section5"),
