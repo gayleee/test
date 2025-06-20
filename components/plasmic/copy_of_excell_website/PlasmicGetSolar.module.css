@@ -516,10 +516,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   object-fit: cover;
+  background: #ffffff;
   min-width: 0;
-  padding: 8px;
+  padding: 24px;
 }
-.freeBox__tvAfg {
+.freeBox__tsBoJ {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -528,9 +529,9 @@
   max-width: 100%;
   margin-bottom: 24px;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
-.freeBox__tvAfg > :global(.__wab_flex-container) {
+.freeBox__tsBoJ > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
@@ -538,142 +539,21 @@
   margin-left: calc(0px - 48px);
   width: calc(100% + 48px);
 }
-.freeBox__tvAfg > :global(.__wab_flex-container) > *,
-.freeBox__tvAfg > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__tvAfg > :global(.__wab_flex-container) > picture > img,
-.freeBox__tvAfg
+.freeBox__tsBoJ > :global(.__wab_flex-container) > *,
+.freeBox__tsBoJ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__tsBoJ > :global(.__wab_flex-container) > picture > img,
+.freeBox__tsBoJ
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 48px;
 }
-.formField__qbqjq:global(.__wab_instance) {
+.formField__eO1F6:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
 }
-.input:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.formField__tKixO:global(.__wab_instance) {
-  width: 100%;
-  margin-bottom: 24px;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 0;
-}
-.input2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__nk3Xw {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.freeBox__gYsGh {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 24px;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__gYsGh > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 48px);
-  width: calc(100% + 48px);
-}
-.freeBox__gYsGh > :global(.__wab_flex-container) > *,
-.freeBox__gYsGh > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__gYsGh > :global(.__wab_flex-container) > picture > img,
-.freeBox__gYsGh
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 48px;
-}
-.formField__rd7Mp:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 0;
-}
-.input3:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__rKm2X {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.formField__ltJ3N:global(.__wab_instance) {
-  width: 100%;
-  margin-bottom: 24px;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 0;
-}
-.input4:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__yrgt {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.freeBox__bxQdl {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 24px;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__bxQdl > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 48px);
-  width: calc(100% + 48px);
-}
-.freeBox__bxQdl > :global(.__wab_flex-container) > *,
-.freeBox__bxQdl > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__bxQdl > :global(.__wab_flex-container) > picture > img,
-.freeBox__bxQdl
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 48px;
-}
-.regionFetcher:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 0;
-}
-.text__rcUGl {
+.text__s2HL {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -688,7 +568,143 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.text__cvk3X {
+.input:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__mNmHp:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.input2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__xqx4X {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox___8WFp {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___8WFp > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 48px);
+  width: calc(100% + 48px);
+}
+.freeBox___8WFp > :global(.__wab_flex-container) > *,
+.freeBox___8WFp > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___8WFp > :global(.__wab_flex-container) > picture > img,
+.freeBox___8WFp
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 48px;
+}
+.formField__ab0B:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.input4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__cQzkf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.formField__vhGk7:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.input5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__shn3M {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__dbPon {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__dbPon > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 48px);
+  width: calc(100% + 48px);
+}
+.freeBox__dbPon > :global(.__wab_flex-container) > *,
+.freeBox__dbPon > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__dbPon > :global(.__wab_flex-container) > picture > img,
+.freeBox__dbPon
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 48px;
+}
+.regionFetcher:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.text___66RQy {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: #535353;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
+}
+.text__qo9Ej {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -714,7 +730,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__lUiF8 {
+.text__jFyCm {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -733,7 +749,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__s1G9Y {
+.text__hotAx {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -748,7 +764,7 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.text__yXv49 {
+.text___0E6Ra {
   position: relative;
   width: 100%;
   height: auto;
@@ -768,25 +784,24 @@
   text-overflow: clip !important;
   min-width: 0;
 }
-.formField___8A5MG:global(.__wab_instance) {
+.formField__cCx6S:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 24px;
   max-width: 100%;
   object-fit: cover;
   min-width: 0;
 }
-.input5:global(.__wab_instance) {
+.input6:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__kqAhu {
+.text__xvc6F {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.businessHs {
+.freeBox___6YYJ {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -797,7 +812,7 @@
   min-width: 0;
   padding: 0px;
 }
-.businessHs > :global(.__wab_flex-container) {
+.freeBox___6YYJ > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
@@ -805,25 +820,18 @@
   margin-left: calc(0px - 48px);
   width: calc(100% + 48px);
 }
-.businessHs > :global(.__wab_flex-container) > *,
-.businessHs > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.businessHs > :global(.__wab_flex-container) > picture > img,
-.businessHs
+.freeBox___6YYJ > :global(.__wab_flex-container) > *,
+.freeBox___6YYJ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___6YYJ > :global(.__wab_flex-container) > picture > img,
+.freeBox___6YYJ
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 48px;
 }
-@media (min-width: 0px) and (max-width: 768px) {
-  .businessHs > :global(.__wab_flex-container) {
-    flex-wrap: wrap;
-    align-items: stretch;
-  }
-}
-.sectorField:global(.__wab_instance) {
+.formField___9DJcl:global(.__wab_instance) {
   width: 100%;
-  margin-bottom: 24px;
   max-width: 100%;
   object-fit: cover;
   min-width: 0;
@@ -832,42 +840,14 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__pBtdd {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  color: #535353;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
-}
-.text__mjXal {
+.text___5MBnb {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Open Sans", sans-serif;
-  color: var(--token-PC6O9-hPHdvT);
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
   min-width: 0;
 }
-.formField__l0Hh5:global(.__wab_instance) {
+.formField__hYlDm:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   max-width: 100%;
@@ -878,53 +858,25 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__pfBf7 {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  color: #535353;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
-}
-.text__bGw56 {
+.text__zuRJd {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  color: #535353;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
   min-width: 0;
 }
-.freeBox__l4POw {
+.freeBox__brfeO {
   display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-bottom: 24px;
   min-width: 0;
-  padding: 8px;
-  margin: 0px;
+  padding: 0px;
 }
-.freeBox__l4POw > :global(.__wab_flex-container) {
+.freeBox__brfeO > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
@@ -932,45 +884,28 @@
   margin-left: calc(0px - 48px);
   width: calc(100% + 48px);
 }
-.freeBox__l4POw > :global(.__wab_flex-container) > *,
-.freeBox__l4POw > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__l4POw > :global(.__wab_flex-container) > picture > img,
-.freeBox__l4POw
+.freeBox__brfeO > :global(.__wab_flex-container) > *,
+.freeBox__brfeO > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__brfeO > :global(.__wab_flex-container) > picture > img,
+.freeBox__brfeO
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 48px;
 }
-.formField__flfhq:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 0;
-}
-.input6:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__iDTmr {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.formField__afzvW:global(.__wab_instance) {
+.formField__uTfpW:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   max-width: 100%;
   object-fit: cover;
   min-width: 0;
 }
-.textArea2:global(.__wab_instance) {
+.input3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__gtE9 {
+.text__b21H {
   position: relative;
   width: 100%;
   height: auto;
@@ -978,17 +913,54 @@
   padding-right: 0px;
   min-width: 0;
 }
-.button:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
+.formField__ore8R:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
 }
-.text___6J24R {
+.text__rS791 {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: #535353;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
+}
+.textArea:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  color: #ffffff;
+  width: 100%;
+  min-width: 0;
+}
+.text__hmKAz {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
   min-width: 0;
 }
 .footer {
