@@ -934,7 +934,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
-                            placeholder: ``,
+                            placeholder: "Enter Contact Number",
                             type: "tel",
                             value: generateStateValueProp($state, [
                               "input5",
@@ -1217,6 +1217,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
+                            placeholder: "Enter Company Name",
                             value: generateStateValueProp($state, [
                               "input6",
                               "value"
@@ -1411,6 +1412,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                                 AntdInput_Helpers
                               ).apply(null, eventArgs);
                             },
+                            placeholder: "Enter amount",
                             value: generateStateValueProp($state, [
                               "input3",
                               "value"
