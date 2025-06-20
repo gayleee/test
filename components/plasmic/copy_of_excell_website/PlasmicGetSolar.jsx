@@ -1553,7 +1553,7 @@ function PlasmicGetSolar__RenderFunc(props) {
                             }
                             style={{ fontWeight: 700 }}
                           >
-                            {"Submit"}
+                            {"Submit Form"}
                           </span>
                         </React.Fragment>
                       </div>
