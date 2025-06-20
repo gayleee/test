@@ -1246,6 +1246,20 @@
           "cssFilePath": "plasmic/copy_of_excell_website/PlasmicModal.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "8h20kgQsFUq-",
+          "name": "GetSolar2",
+          "type": "managed",
+          "projectId": "dFCW3EJJak7e5FJ1Eb9ZNV",
+          "renderModuleFilePath": "plasmic/copy_of_excell_website/PlasmicGetSolar2.jsx",
+          "importSpec": {
+            "modulePath": "../pages/get-solar-2.jsx"
+          },
+          "cssFilePath": "plasmic/copy_of_excell_website/PlasmicGetSolar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/get-solar-2"
         }
       ],
       "icons": [
