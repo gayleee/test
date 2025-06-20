@@ -186,36 +186,6 @@ function PlasmicGetSolar__RenderFunc(props) {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "form2.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        refName: "form2",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "form2.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-        refName: "form2",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
-      },
-      {
-        path: "input7.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "textArea2.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
       }
     ],
 
@@ -559,6 +529,42 @@ function PlasmicGetSolar__RenderFunc(props) {
                       ["form", "value"],
                       FormWrapper_Helpers
                     ).apply(null, eventArgs);
+                    (async (changedValues, allValues) => {
+                      const $steps = {};
+                      $steps["updateInputValue"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["input", "value"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateInputValue"] != null &&
+                        typeof $steps["updateInputValue"] === "object" &&
+                        typeof $steps["updateInputValue"].then === "function"
+                      ) {
+                        $steps["updateInputValue"] = await $steps[
+                          "updateInputValue"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
                   },
                   formItems: [
                     { label: "Name", name: "name", inputType: "Text" },
@@ -1505,10 +1511,9 @@ function PlasmicGetSolar__RenderFunc(props) {
                       </FormItemWrapper>
                     </Stack__>
                     <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__zlByo
-                      )}
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
                       onClick={async () => {
                         const $steps = {};
                         $steps["refreshData"] = true
@@ -1553,285 +1558,6 @@ function PlasmicGetSolar__RenderFunc(props) {
                             {"Submit"}
                           </span>
                         </React.Fragment>
-                      </div>
-                    </AntdButton>
-                  </FormWrapper>
-                );
-              })()}
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.form2),
-                  extendedOnValuesChange: async (...eventArgs) => {
-                    generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "value",
-                      ["form2", "value"],
-                      FormWrapper_Helpers
-                    ).apply(null, eventArgs);
-                    (async (changedValues, allValues) => {
-                      const $steps = {};
-                      $steps["updateInputValue"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["input", "value"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateInputValue"] != null &&
-                        typeof $steps["updateInputValue"] === "object" &&
-                        typeof $steps["updateInputValue"].then === "function"
-                      ) {
-                        $steps["updateInputValue"] = await $steps[
-                          "updateInputValue"
-                        ];
-                      }
-                    }).apply(null, eventArgs);
-                  },
-                  formItems: [
-                    { label: "Name", name: "name", inputType: "Text" },
-                    {
-                      label: "Message",
-                      name: "message",
-                      inputType: "Text Area"
-                    }
-                  ],
-
-                  labelCol: { span: 8, horizontalOnly: true },
-                  layout: "vertical",
-                  mode: "advanced",
-                  onFinish: async values => {
-                    const $steps = {};
-                    $steps["postgresCreate"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            dataOp: {
-                              sourceId: "3QZVgcraAPmmVpc5XB7bFz",
-                              opId: "2ed7b061-6f89-4180-bbfe-288a5daeb39b",
-                              userArgs: {
-                                variables: [values]
-                              },
-                              cacheKey: null,
-                              invalidatedKeys: ["plasmic_refresh_all"],
-                              roleId: "7a6870b2-63d4-446f-86b5-f6db971e2494"
-                            }
-                          };
-                          return (async ({ dataOp, continueOnError }) => {
-                            try {
-                              const response = await executePlasmicDataOp(
-                                dataOp,
-                                {
-                                  userAuthToken: dataSourcesCtx?.userAuthToken,
-                                  user: dataSourcesCtx?.user
-                                }
-                              );
-                              await plasmicInvalidate(dataOp.invalidatedKeys);
-                              return response;
-                            } catch (e) {
-                              if (!continueOnError) {
-                                throw e;
-                              }
-                              return e;
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["postgresCreate"] != null &&
-                      typeof $steps["postgresCreate"] === "object" &&
-                      typeof $steps["postgresCreate"].then === "function"
-                    ) {
-                      $steps["postgresCreate"] = await $steps["postgresCreate"];
-                    }
-                  },
-                  onIsSubmittingChange: async (...eventArgs) => {
-                    generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "isSubmitting",
-                      ["form2", "isSubmitting"],
-                      FormWrapper_Helpers
-                    ).apply(null, eventArgs);
-                  },
-                  ref: ref => {
-                    $refs["form2"] = ref;
-                  },
-                  submitSlot: null,
-                  wrapperCol: { span: 16, horizontalOnly: true }
-                };
-                initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "value",
-                      plasmicStateName: "form2.value"
-                    },
-                    {
-                      name: "isSubmitting",
-                      plasmicStateName: "form2.isSubmitting"
-                    }
-                  ],
-
-                  [],
-                  FormWrapper_Helpers ?? {},
-                  child$Props
-                );
-                return (
-                  <FormWrapper
-                    data-plasmic-name={"form2"}
-                    data-plasmic-override={overrides.form2}
-                    {...child$Props}
-                  >
-                    <FormItemWrapper
-                      className={classNames(
-                        "__wab_instance",
-                        sty.formField__bihd9
-                      )}
-                      label={"Name"}
-                      name={"first_name"}
-                    >
-                      {(() => {
-                        const child$Props = {
-                          className: classNames("__wab_instance", sty.input7),
-                          onChange: async (...eventArgs) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "value",
-                              ["input7", "value"],
-                              AntdInput_Helpers
-                            ).apply(null, eventArgs);
-                          },
-                          value: generateStateValueProp($state, [
-                            "input7",
-                            "value"
-                          ])
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "value",
-                              plasmicStateName: "input7.value"
-                            }
-                          ],
-
-                          [],
-                          AntdInput_Helpers ?? {},
-                          child$Props
-                        );
-                        return (
-                          <AntdInput
-                            data-plasmic-name={"input7"}
-                            data-plasmic-override={overrides.input7}
-                            {...child$Props}
-                          />
-                        );
-                      })()}
-                    </FormItemWrapper>
-                    <FormItemWrapper
-                      className={classNames(
-                        "__wab_instance",
-                        sty.formField__fJx3
-                      )}
-                      label={"Message"}
-                      name={"message"}
-                    >
-                      {(() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.textArea2
-                          ),
-                          onChange: async (...eventArgs) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "value",
-                              ["textArea2", "value"],
-                              AntdTextArea_Helpers
-                            ).apply(null, eventArgs);
-                          },
-                          value: generateStateValueProp($state, [
-                            "textArea2",
-                            "value"
-                          ])
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "value",
-                              plasmicStateName: "textArea2.value"
-                            }
-                          ],
-
-                          [],
-                          AntdTextArea_Helpers ?? {},
-                          child$Props
-                        );
-                        return (
-                          <AntdTextArea
-                            data-plasmic-name={"textArea2"}
-                            data-plasmic-override={overrides.textArea2}
-                            {...child$Props}
-                          />
-                        );
-                      })()}
-                    </FormItemWrapper>
-                    <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__yaWrp
-                      )}
-                      onClick={async () => {
-                        const $steps = {};
-                        $steps["refreshData"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                queryInvalidation: ["plasmic_refresh_all"]
-                              };
-                              return (async ({ queryInvalidation }) => {
-                                if (!queryInvalidation) {
-                                  return;
-                                }
-                                await plasmicInvalidate(queryInvalidation);
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["refreshData"] != null &&
-                          typeof $steps["refreshData"] === "object" &&
-                          typeof $steps["refreshData"].then === "function"
-                        ) {
-                          $steps["refreshData"] = await $steps["refreshData"];
-                        }
-                      }}
-                      submitsForm={true}
-                      type={"primary"}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__oG29P
-                        )}
-                      >
-                        {"Submit"}
                       </div>
                     </AntdButton>
                   </FormWrapper>
@@ -2186,9 +1912,7 @@ const PlasmicDescendants = {
     "select2",
     "input3",
     "textArea",
-    "form2",
-    "input7",
-    "textArea2",
+    "button",
     "footer",
     "section5",
     "brandLogo3",
@@ -2234,9 +1958,7 @@ const PlasmicDescendants = {
     "select2",
     "input3",
     "textArea",
-    "form2",
-    "input7",
-    "textArea2"
+    "button"
   ],
 
   card: [
@@ -2255,9 +1977,7 @@ const PlasmicDescendants = {
     "select2",
     "input3",
     "textArea",
-    "form2",
-    "input7",
-    "textArea2"
+    "button"
   ],
 
   form: [
@@ -2274,7 +1994,8 @@ const PlasmicDescendants = {
     "select",
     "select2",
     "input3",
-    "textArea"
+    "textArea",
+    "button"
   ],
 
   input: ["input"],
@@ -2296,9 +2017,7 @@ const PlasmicDescendants = {
   select2: ["select2"],
   input3: ["input3"],
   textArea: ["textArea"],
-  form2: ["form2", "input7", "textArea2"],
-  input7: ["input7"],
-  textArea2: ["textArea2"],
+  button: ["button"],
   footer: [
     "footer",
     "section5",
@@ -2414,9 +2133,7 @@ export const PlasmicGetSolar = Object.assign(
     select2: makeNodeComponent("select2"),
     input3: makeNodeComponent("input3"),
     textArea: makeNodeComponent("textArea"),
-    form2: makeNodeComponent("form2"),
-    input7: makeNodeComponent("input7"),
-    textArea2: makeNodeComponent("textArea2"),
+    button: makeNodeComponent("button"),
     footer: makeNodeComponent("footer"),
     section5: makeNodeComponent("section5"),
     brandLogo3: makeNodeComponent("brandLogo3"),
