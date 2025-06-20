@@ -16,6 +16,7 @@ import {
   PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
   PlasmicImg as PlasmicImg__,
   PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
@@ -585,13 +586,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                           const actionArgs = {
                             dataOp: {
                               sourceId: "3QZVgcraAPmmVpc5XB7bFz",
-                              opId: "2ed7b061-6f89-4180-bbfe-288a5daeb39b",
+                              opId: "0a72774d-a393-4af7-bffe-ca7cf7e71485",
                               userArgs: {
                                 variables: [values]
                               },
                               cacheKey: null,
                               invalidatedKeys: ["plasmic_refresh_all"],
-                              roleId: "7a6870b2-63d4-446f-86b5-f6db971e2494"
+                              roleId: "53cf4598-9e33-456e-bd38-8f4fbdcd8ed0"
                             }
                           };
                           return (async ({ dataOp, continueOnError }) => {
@@ -2082,6 +2083,21 @@ function makeNodeComponent(nodeName) {
   return func;
 }
 
+function withPlasmicPageGuard(WrappedComponent) {
+  const PageGuard = props => (
+    <PlasmicPageGuard__
+      minRole={"53cf4598-9e33-456e-bd38-8f4fbdcd8ed0"}
+      appId={"dFCW3EJJak7e5FJ1Eb9ZNV"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={true}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 function withUsePlasmicAuth(WrappedComponent) {
   const WithUsePlasmicAuthComponent = props => {
     const dataSourceCtx = usePlasmicDataSourceContext() ?? {};
@@ -2106,7 +2122,7 @@ function withUsePlasmicAuth(WrappedComponent) {
 
 export const PlasmicGetSolar = Object.assign(
   // Top-level PlasmicGetSolar renders the root element
-  withUsePlasmicAuth(makeNodeComponent("getSolarPage")),
+  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("getSolarPage"))),
   {
     // Helper components rendering sub-elements
     landingPage: makeNodeComponent("landingPage"),
