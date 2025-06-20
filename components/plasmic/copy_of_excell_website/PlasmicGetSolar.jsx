@@ -13,10 +13,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
-  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
   PlasmicImg as PlasmicImg__,
   PlasmicLink as PlasmicLink__,
-  PlasmicPageGuard as PlasmicPageGuard__,
   Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
@@ -29,7 +27,6 @@ import {
   hasVariant,
   initializeCodeComponentStates,
   set as $stateSet,
-  useCurrentUser,
   useDollarState
 } from "@plasmicapp/react-web";
 import {
@@ -37,7 +34,6 @@ import {
   useDataEnv,
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
-import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
   executePlasmicDataOp,
@@ -102,7 +98,6 @@ function PlasmicGetSolar__RenderFunc(props) {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
   const $globalActions = useGlobalActions?.();
-  const currentUser = useCurrentUser?.() || {};
   const stateSpecs = React.useMemo(
     () => [
       {
@@ -586,13 +581,13 @@ function PlasmicGetSolar__RenderFunc(props) {
                           const actionArgs = {
                             dataOp: {
                               sourceId: "3QZVgcraAPmmVpc5XB7bFz",
-                              opId: "0a72774d-a393-4af7-bffe-ca7cf7e71485",
+                              opId: "569cce16-49d9-471a-b12f-cd7274560c32",
                               userArgs: {
                                 variables: [values]
                               },
                               cacheKey: null,
                               invalidatedKeys: ["plasmic_refresh_all"],
-                              roleId: "53cf4598-9e33-456e-bd38-8f4fbdcd8ed0"
+                              roleId: null
                             }
                           };
                           return (async ({ dataOp, continueOnError }) => {
@@ -2083,46 +2078,9 @@ function makeNodeComponent(nodeName) {
   return func;
 }
 
-function withPlasmicPageGuard(WrappedComponent) {
-  const PageGuard = props => (
-    <PlasmicPageGuard__
-      minRole={"53cf4598-9e33-456e-bd38-8f4fbdcd8ed0"}
-      appId={"dFCW3EJJak7e5FJ1Eb9ZNV"}
-      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
-      canTriggerLogin={true}
-    >
-      <WrappedComponent {...props} />
-    </PlasmicPageGuard__>
-  );
-
-  return PageGuard;
-}
-
-function withUsePlasmicAuth(WrappedComponent) {
-  const WithUsePlasmicAuthComponent = props => {
-    const dataSourceCtx = usePlasmicDataSourceContext() ?? {};
-    const { isUserLoading, user, token } = plasmicAuth.usePlasmicAuth({
-      appId: "dFCW3EJJak7e5FJ1Eb9ZNV"
-    });
-    return (
-      <PlasmicDataSourceContextProvider__
-        value={{
-          ...dataSourceCtx,
-          isUserLoading,
-          userAuthToken: token,
-          user
-        }}
-      >
-        <WrappedComponent {...props} />
-      </PlasmicDataSourceContextProvider__>
-    );
-  };
-  return WithUsePlasmicAuthComponent;
-}
-
 export const PlasmicGetSolar = Object.assign(
   // Top-level PlasmicGetSolar renders the root element
-  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("getSolarPage"))),
+  makeNodeComponent("getSolarPage"),
   {
     // Helper components rendering sub-elements
     landingPage: makeNodeComponent("landingPage"),
