@@ -459,7 +459,7 @@ function PlasmicLanding__RenderFunc(props) {
                       sty.link___7D9Vj
                     )}
                     component={Link}
-                    href={`/get-solar-2`}
+                    href={`/get-solar`}
                     platform={"nextjs"}
                   >
                     <PlasmicImg__
