@@ -31,11 +31,7 @@ import {
   useCurrentUser,
   useDollarState
 } from "@plasmicapp/react-web";
-import {
-  DataCtxReader as DataCtxReader__,
-  useDataEnv,
-  useGlobalActions
-} from "@plasmicapp/react-web/lib/host";
+import { useDataEnv, useGlobalActions } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
@@ -48,9 +44,7 @@ import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Fo
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { AntdOption } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
@@ -198,12 +192,6 @@ function PlasmicGetSolar__RenderFunc(props) {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "regionDropdown.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
 
@@ -991,213 +979,6 @@ function PlasmicGetSolar__RenderFunc(props) {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__dbPon)}
                     >
-                      <DataFetcher
-                        data-plasmic-name={"regionFetcher"}
-                        data-plasmic-override={overrides.regionFetcher}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.regionFetcher
-                        )}
-                        dataName={"fetchedData"}
-                        errorDisplay={
-                          <DataCtxReader__>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__qo9Ej
-                                )}
-                              >
-                                {"Error fetching data"}
-                              </div>
-                            )}
-                          </DataCtxReader__>
-                        }
-                        errorName={"fetchError"}
-                        loadingDisplay={
-                          <DataCtxReader__>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___66RQy
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </DataCtxReader__>
-                        }
-                        method={"GET"}
-                        noLayout={false}
-                        url={"https://psgc.gitlab.io/api/regions/"}
-                      >
-                        <DataCtxReader__>
-                          {$ctx => (
-                            <FormItemWrapper
-                              data-plasmic-name={"regionField"}
-                              data-plasmic-override={overrides.regionField}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.regionField
-                              )}
-                              label={
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___0E6Ra
-                                  )}
-                                >
-                                  {"Region"}
-                                </div>
-                              }
-                              name={"region"}
-                            >
-                              <AntdSelect
-                                data-plasmic-name={"regionDropdown"}
-                                data-plasmic-override={overrides.regionDropdown}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.regionDropdown
-                                )}
-                                defaultOpen={false}
-                                defaultStylesClassName={classNames(
-                                  projectcss.root_reset,
-                                  projectcss.plasmic_default_styles,
-                                  projectcss.plasmic_mixins,
-                                  projectcss.plasmic_tokens,
-                                  plasmic_antd_5_hostless_css.plasmic_tokens
-                                )}
-                                onChange={async (...eventArgs) => {
-                                  generateStateOnChangeProp($state, [
-                                    "regionDropdown",
-                                    "value"
-                                  ]).apply(null, eventArgs);
-                                }}
-                                options={[
-                                  {
-                                    value: "option1",
-                                    label: "Option 1",
-                                    type: "option"
-                                  }
-                                ]}
-                                placeholder={
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__jFyCm
-                                    )}
-                                  >
-                                    {"Select..."}
-                                  </div>
-                                }
-                                popupScopeClassName={
-                                  sty["regionDropdown__popup"]
-                                }
-                                useChildren={(() => {
-                                  try {
-                                    return $ctx.fetchedData;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                value={generateStateValueProp($state, [
-                                  "regionDropdown",
-                                  "value"
-                                ])}
-                              >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return $ctx.fetchedData;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                  const currentItem = __plasmic_item_0;
-                                  const currentIndex = __plasmic_idx_0;
-                                  return (
-                                    <AntdOption
-                                      data-plasmic-name={"regionOptions"}
-                                      data-plasmic-override={
-                                        overrides.regionOptions
-                                      }
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.regionOptions
-                                      )}
-                                      key={currentIndex}
-                                      value={(() => {
-                                        try {
-                                          return `${currentItem.name} (${currentItem.regionName})`;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__hotAx
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return `${currentItem.name} (${currentItem.regionName})`;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "Option";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                    </AntdOption>
-                                  );
-                                })}
-                              </AntdSelect>
-                            </FormItemWrapper>
-                          )}
-                        </DataCtxReader__>
-                      </DataFetcher>
                       <FormItemWrapper
                         className={classNames(
                           "__wab_instance",
@@ -1897,10 +1678,6 @@ const PlasmicDescendants = {
     "input2",
     "input4",
     "input5",
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions",
     "input6",
     "select",
     "select2",
@@ -1943,10 +1720,6 @@ const PlasmicDescendants = {
     "input2",
     "input4",
     "input5",
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions",
     "input6",
     "select",
     "select2",
@@ -1962,10 +1735,6 @@ const PlasmicDescendants = {
     "input2",
     "input4",
     "input5",
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions",
     "input6",
     "select",
     "select2",
@@ -1980,10 +1749,6 @@ const PlasmicDescendants = {
     "input2",
     "input4",
     "input5",
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions",
     "input6",
     "select",
     "select2",
@@ -1996,16 +1761,6 @@ const PlasmicDescendants = {
   input2: ["input2"],
   input4: ["input4"],
   input5: ["input5"],
-  regionFetcher: [
-    "regionFetcher",
-    "regionField",
-    "regionDropdown",
-    "regionOptions"
-  ],
-
-  regionField: ["regionField", "regionDropdown", "regionOptions"],
-  regionDropdown: ["regionDropdown", "regionOptions"],
-  regionOptions: ["regionOptions"],
   input6: ["input6"],
   select: ["select"],
   select2: ["select2"],
@@ -2118,10 +1873,6 @@ export const PlasmicGetSolar = Object.assign(
     input2: makeNodeComponent("input2"),
     input4: makeNodeComponent("input4"),
     input5: makeNodeComponent("input5"),
-    regionFetcher: makeNodeComponent("regionFetcher"),
-    regionField: makeNodeComponent("regionField"),
-    regionDropdown: makeNodeComponent("regionDropdown"),
-    regionOptions: makeNodeComponent("regionOptions"),
     input6: makeNodeComponent("input6"),
     select: makeNodeComponent("select"),
     select2: makeNodeComponent("select2"),
